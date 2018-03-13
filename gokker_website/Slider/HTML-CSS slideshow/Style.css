@@ -1,0 +1,68 @@
+/* De benodigde code voor het laten werken */
+
+/* de animatie begint bij 0% en eindigd bij 100% je geeft hierbij aan hoe de animatie beweegt en vanuit welke richting die komt*/
+@keyframes slider {
+
+0% {
+	left: 0%;
+}
+
+15% {
+	left: 0%;
+}
+
+20% {
+	left: -100%;
+}
+
+35% {
+	left: -100%;
+}
+
+40% {
+	left: -200%;
+}
+
+55% {
+	left: -200%;
+}
+
+60% {
+	left: -300%;
+}
+
+75% {
+	left: -300%;
+}
+
+80% {
+	left: -400%;
+}
+95% {
+	left: -400%;
+}
+100% {
+	left: 400%;
+}
+}
+
+/* de "box" van de afbeeldingen wordt als het ware verborgen*/
+.sliders {
+	width: 200px;
+	overflow: hidden;
+}
+
+/* sliders figure en img geven de grootte van de afbeeldingen weer, de grootte, zijde en tijdsduur van de animatie */
+.sliders figure img {
+	width: 20%;
+	float: left;
+}
+
+.sliders figure {
+	margin: 0;
+	position: relative;
+	width: 500%; /* hoeveel images zoveel procent dus 5 images 500 procent*/
+	left: 0;
+	text-align: left;
+	animation: slider 20s linear infinite;
+}

@@ -1,4 +1,4 @@
-/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+/*! HTML5 Boilerplate v6.0.1 | MIT License | https://html5boilerplate.com/ */
 
 /*
  * What follows is the result of much research on cross-browser styling.
@@ -20,7 +20,9 @@ html {
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
  *
- * These selection rule sets have to be separate.
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
  * Customize the background color to match your design.
  */
 
@@ -94,417 +96,133 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
-
-/*
-
-    Global styling
-
- */
-
-
-
-* {
-
-    margin: 0;
-
-    padding: 0;
-
+@font-face {
+    font-family: 'Bariol';
+    src: url('../Fonts/Bariol-Regular.woff2') format('woff2'),
+        url('../Fonts/Bariol-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-
-html {
-
-    background-image: url("../img/background/background_site.png");
-
+body{
+    font-family: "Bariol", "Arial", sans-serif;
 }
-
 .container {
 
-    max-width: 1200px;
-
     margin: 0 auto;
-
 }
-
-li {
-
-    list-style: none;
-
+.center-content, .logo{
+    padding: 0px;
+    grid-column-start: 2;
+    grid-row-start: 1;
 }
-
-a {
-
-    text-decoration: none;
-
-    color: #eee;
-
+header{
+    background-color: #4931A8;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
 }
-
-a:hover {
-
-    text-decoration: underline;
-
-}
-
-img {
-
-    border-radius: 4px;
-
-}
-
-h1{
-
-    color: #7E8F7C;
-
-}
-
-h2, a, p, label {
-
-    color: #3B3738;
-
-}
-
-
-
-
-
-/*
-
-    Header styling
-
- */
-
-
-
-header {
-
-    background-image: url(../img/background/background_divs.png);
-
-    border-radius: 20px;
-
-    margin: 5px 10px;
-    padding: 5px 10px;
-}
-
-header .container {
-
+nav{
+    grid-column-start: 3;
+    grid-row-start: 1;
     display: flex;
-
-    flex-direction: row;
-
-    justify-content: space-between;
-
-    color: #eee;
-
-}
-
-header h1 span {
-
-    display: flex;
-
-    font-size: 25px;
-
-}
-
-header h1 {
-
-    line-height: 19px;
-
-    margin: 10px 2px;
-
-}
-
-header ul {
-
-    display: flex;
-
-    flex-direction: row;
-
-}
-
-header li {
-
-    margin-right: 15px;
-
-    font-size: 16px;
-
-}
-
-.nav {
-
-    height: 100%;
-
-    margin: auto 6px auto 0;
-
-}
-
-/*
-
-    Info Page Styling
-
- */
-
-.info {
-
-    margin: 0 auto;
-
-    background-image: url(../img/background/background_divs.png);
-
-    border-radius: 20px;
-
-    margin: 5px 25px;
-
-    color: #eee
-
-}
-
-.info-info {
-
-    display: flex;
-
     justify-content: space-around;
-
+    align-items: center;
 }
-
-.info-text {
-
-    line-height: 25px;
-
-    max-width: 400px;
-    margin: 10px;
-    padding: 10px;
-
-}
-
-.info h1 {
-
-    text-align: center;
-
-    line-height: 75px;
-
-    margin: 0;
-
-}
-.info-img img {
-    padding-bottom: 20px;
-    margin: 10px;
-    max-width: 400px;
-    border: 2px solid #ddd;
-}
-
-@media screen and (max-width: 680px) {
-    .info-info {
-        display: flex;
-        flex-direction: column;
-
-        margin: 0 auto;
-    }
-
-    .info-text {
-        margin: 5px auto;
-    }
-
-    .info-info {
-        text-align: center;
-    }
-}
-
-@media screen and (max-width: 490px) {
-    .info-img img {
-        max-width: 300px;
-    }
-}
-
-@media screen and (max-width: 375px) {
-    .info-img img {
-        max-width: 200px;
-    }
-}
-
-/*
-
-    Download Page Styling
-
-
-
-*/
-
-
-
-.download {
-
-    background-image: url(../img/background/background_divs.png);
-
-    margin: 0 auto;
-
-    border-radius: 20px;
-
-    margin: 5px 25px;
-
-    color: #eee
-
-}
-
-
-
-.download h1 {
-
-    text-align: center;
-
-    line-height: 75px;
-
-    margin: 0;
-
-}
-
-
-
-.download h2 {
-
-    text-align: center;
-
-    line-height: 25px;
-
-    margin: 0;
-
-}
-
-
-
-.download p {
-
-    text-align: center;
-
-    line-height: 75px;
-
-    margin: 0;
-
-}
-
-.gokkers-download {
+nav a{
     display: flex;
+    text-decoration: none;
+    color: white;
     justify-content: center;
 }
-
-.gokkers-download button {
-
-    list-style-type: none;
-
-    color: white;
-
-    width: 300px;
-
-    height: 100px;
-
-    background: #5EBD5E;
-
-    font-size: 25px;
-
-    border-radius: 20px;
-
-    text-align: center;
-    margin: 30px 0;
-
+nav a:hover{
+    background-color: #232324;
+    background-size: 20px;
+    border-radius: 5px; 
+    padding: 5px;
 }
-
-
-
-/*
-
-    Register page Styling
-
- */
-
-
-
-.register {
-
-    background-image: url(../img/background/background_divs.png);
-
-    border-radius: 20px;
-
-    margin: 5px 25px;
-
-    color: #eee;
-
-    padding: 10px;
-
-}
-
-
-
-.register h1 {
-
-    text-align: center;
-
-    line-height: 75px;
-
-    margin: 0;
-
-}
-
-
-
-.form-group {
-
-    padding-bottom: 5px;
-
-}
-
-.form-register input {
-
-    float: right;
-
-}
-
-.form-login input {
-
-    float: right;
-
-}
-
-.form-register-login {
-    display: flex;
-    justify-content: space-around;
-
-}
-
-input {
-
-    color: #222;
-
-}
-
-.submit {
-
-    color: #fff;
-
-    background: #5EBD5E;
-
-    padding: 4px;
-
+ nav a.current{
+    background-color: #232324;
     border-radius: 5px;
+    padding: 5px;
+}
+.logo h1{
+    margin-bottom: 0px;
+    color: white;
+}
+.logo p{
+    margin-top: 0px;
+    color: white;
+}
+.logo img{
+    float: left;
+    margin-right: 10px;
+}
+
+
+/*------------------SLIDER------------------------*/
+.fling-minislide [type=text] {
+    width: 130px;
+    height: 35px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    float: right;
+    margin-top: 20px;
+}
+/* When the input field gets focus, change its width to 100% */
+.fling-minislide [type=text]:focus {
+    width: 30%;
+}
+.mySlides{
+    display:none;
+    width: 1000px;
+    height: 300px;
+}
+.fling-minislide {width:800px; height:600px; overflow:hidden; position:relative; }
+.fling-minislide img{ position:absolute; animation:fling-minislide 13s infinite; opacity:0; width: 100%; height: auto;}
+
+@keyframes fling-minislide {25%{opacity:1;} 40%{opacity:0;}}
+.fling-minislide img:nth-child(2){animation-delay:0s;}
+.fling-minislide img:nth-child(1){animation-delay:5s;}
+/*-------------------Slider end-----------------------------------------*/
+.banner{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.3fr 2fr;
+    background-color: #807EFB;
+}
+.head-ban{
+    grid-column-start: 2;
+    grid-row-start: 1; 
+    text-align: center;
+}
+.head-ban h2{
+    font-size: 60px;
+    margin-bottom: 0px;
+}
+.fling-minislide{
+    grid-row-start: 2;
+    grid-column-start: 2;
+}
+.login{
+    grid-row-start: 3;
+}
+.login input{
+    margin-left: 20px;
+
+}
+.login p{
 
 }
 
-.register .container {
 
-    display: flex;
 
-    flex-direction: column;
 
-    justify-content: space-around;
 
-}
 
-@media screen and (max-width: 680px) {
-    .form-register-login {
-        display: flex;
-        flex-direction: column;
-        max-width: 200px;
-        margin: 0 auto;
-    }
-}
+
+
+
 
 
 
@@ -524,18 +242,25 @@ input {
 
 /*
  * Hide only visually, but have it available for screen readers:
- * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
  */
 
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
     height: 1px;
     margin: -1px;
     overflow: hidden;
     padding: 0;
     position: absolute;
     width: 1px;
+    white-space: nowrap; /* 1 */
 }
 
 /*
@@ -547,11 +272,14 @@ input {
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
     clip: auto;
+    -webkit-clip-path: none;
+    clip-path: none;
     height: auto;
     margin: 0;
     overflow: visible;
     position: static;
     width: auto;
+    white-space: inherit;
 }
 
 /*
@@ -610,9 +338,7 @@ input {
 @media print {
     *,
     *:before,
-    *:after,
-    *:first-letter,
-    *:first-line {
+    *:after {
         background: transparent !important;
         color: #000 !important; /* Black prints faster:
                                    http://www.sanbeiji.com/archives/953 */
@@ -643,6 +369,9 @@ input {
         content: "";
     }
 
+    pre {
+        white-space: pre-wrap !important;
+    }
     pre,
     blockquote {
         border: 1px solid #999;
@@ -661,10 +390,6 @@ input {
     tr,
     img {
         page-break-inside: avoid;
-    }
-
-    img {
-        max-width: 100% !important;
     }
 
     p,
