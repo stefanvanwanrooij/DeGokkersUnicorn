@@ -138,7 +138,7 @@ nav a{
 nav a:hover{
     background-color: #232324;
     background-size: 20px;
-    border-radius: 5px; 
+    border-radius: 5px;
     padding: 5px;
 }
  nav a.current{
@@ -185,7 +185,7 @@ nav a:hover{
 .fling-minislide img:nth-child(2){animation-delay:0s;}
 .fling-minislide img:nth-child(1){animation-delay:5s;}
 /*-------------------Slider end-----------------------------------------*/
-.banner{
+#banner{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 0.3fr 2fr;
@@ -193,7 +193,7 @@ nav a:hover{
 }
 .head-ban{
     grid-column-start: 2;
-    grid-row-start: 1; 
+    grid-row-start: 1;
     text-align: center;
 }
 .head-ban h2{
@@ -204,24 +204,46 @@ nav a:hover{
     grid-row-start: 2;
     grid-column-start: 2;
 }
-.login{
+#login{
     grid-row-start: 3;
 }
-.login input{
+#login input{
     margin-left: 20px;
 
 }
-.login p{
+#login p{
 
 }
 
+/*-------------------download--------------------*/
+.arrow {
+    width: 2%;
+    height: 2%;
+}
 
+#download {
+    text-align: center;
+}
 
+/*-----------contact------------*/
+#contact {
+    text-align: center;
+}
 
+/*---------about---------*/
+#about {
+    text-align: center;
+}
 
+#about p {
+    margin-left: 300px;
+    margin-right: 300px;
+}
 
-
-
+/*----copyright----*/
+.copyright {
+    text-align: right;
+}
 
 
 
