@@ -72,6 +72,7 @@ session_start();
             <input type="text" name="uid" placeholder="Username">
             <input type="password" name="pwd" placeholder="Password">
             <button type="submit" name="submit">Signup</button>
+            <input name="accept" type="checkbox" class="tickbox" value="1" />
         </form>';
     }
     ?>
