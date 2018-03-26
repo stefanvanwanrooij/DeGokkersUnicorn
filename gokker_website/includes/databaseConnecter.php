@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<<<<<< HEAD
 <?php/* //DataBaseConnector.php
 require ('../config/config.php');
 =======

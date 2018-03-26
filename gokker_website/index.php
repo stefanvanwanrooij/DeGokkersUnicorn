@@ -66,11 +66,11 @@ session_start();
         </form>        
         <h2>Signup</h2>
         <form class="sign-up" action="includes/signup.inc.php" method="POST">
-            <input type="text" name="first" placeholder="firstname">
-            <input type="text" name="last" placeholder="Lastname">
+            <input type="text" name="first" placeholder="firstname" pattern="[^\' \']+">
+            <input type="text" name="last" placeholder="Lastname" pattern="[^\' \']+">
             <input type="email" name="email" placeholder="E-mail">
-            <input type="text" name="uid" placeholder="Username">
-            <input type="password" name="pwd" placeholder="Password" min>
+            <input type="text" name="uid" placeholder="Username" pattern="[^\' \']+">
+            <input type="password" name="pwd" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
             <button type="submit" name="submit">Signup</button>
             <input name="accept" type="checkbox" class="tickbox" value="1" />
             <a href="#">ik ga akkoord met de voorwaarde </a>

@@ -7,7 +7,7 @@ if (isset($_POST['submit'])){
     include 'config.php';
 
     $uid = mysqli_real_escape_string($conn, $_POST['uid']);
-    $pwd = mysqli_real_escape_string($conn, $_POST['uid']);
+    $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
 
     //error handlers
     //check if inputs are empty
@@ -26,7 +26,7 @@ if (isset($_POST['submit'])){
                 //de- hashing the password
                 $hashedPwdCheck = password_verify($pwd, $row['user_pwd']);
                 if ($hashedPwdCheck == false){
-                    header("Location: ../index.php?login=error");
+                    header("Location: ../index.php?login=test");
                     exit();
                 } elseif ($hashedPwdCheck == true){
                     //Log in the user here

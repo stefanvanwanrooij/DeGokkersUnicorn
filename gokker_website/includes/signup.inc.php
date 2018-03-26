@@ -21,11 +21,6 @@ if (isset($_POST['submit'])){
             header("Location: ../index.php?signup=invalid");
             exit();
         } else {
-            // check if password is valid
-            if (!preg_match("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}", $pwd)) {
-                header("Location: ../index.php?signup=Password_invalid");
-                exit();
-            } else {
                 //checks if check box is checked
                 if (!$_POST['accept'] == '1') {
                     header("Location: ../index.php?signup=Pls_accept_the_therms");
@@ -49,7 +44,6 @@ if (isset($_POST['submit'])){
                             mysqli_query($conn, $sql);
                             header("Location: ../index.php?signup=success");
                             exit();
-                        }
                     }
                 }
             }
