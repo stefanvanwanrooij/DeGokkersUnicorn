@@ -26,7 +26,7 @@ if (isset($_POST['submit'])){
                 //de- hashing the password
                 $hashedPwdCheck = password_verify($pwd, $row['user_pwd']);
                 if ($hashedPwdCheck == false){
-                    header("Location: ../index.php?login=test");
+                    header("Location: ../index.php?login=incorrect_password");
                     exit();
                 } elseif ($hashedPwdCheck == true){
                     //Log in the user here

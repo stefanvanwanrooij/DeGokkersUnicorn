@@ -18,7 +18,7 @@ if (isset($_POST['submit'])){
     }else {
         //Check if input characters are valid Name and lastname
         if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last )) {
-            header("Location: ../index.php?signup=invalid");
+            header("Location: ../index.php?signup=1_uppercase_8_characters_long_1_lowercase");
             exit();
         } else {
                 //checks if check box is checked
