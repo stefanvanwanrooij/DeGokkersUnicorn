@@ -15,28 +15,33 @@ if (isset($_POST['submit'])){
     if (empty($first)||empty($last)||empty($email)||empty($uid)||empty($pwd)){
         header("Location: ../index.php?signup=empty");
         exit();
-    }else{
-        //Check if input characters are valid
-        if (!preg_match("/^[a-zA-Z]*$/", $first) ||!preg_match("/^[a-zA-Z]*$/", $last)){
+    }else {
+        //Check if input characters are valid Name and lastname
+        if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last )) {
             header("Location: ../index.php?signup=invalid");
             exit();
-        }else {
-            //check if password 7 karakters and capedel letters
-            if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/', $pwd)) {
-                header("Location: ../index.php?signup=NeedcapitalLetter");
-             }else{
-                //Check if email is valid
-                if (!filter_var($email,FILTER_VALIDATE_EMAIL)){
-                    header("Location: ../index.php?signup=email");
-                    exit();
+        } else {
+            // check if password is valid
+            if (!preg_match("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}", $pwd)) {
+                header("Location: ../index.php?signup=Password_invalid");
+                exit();
+            } else {
+                //checks if check box is checked
+                if (!$_POST['accept'] == '1') {
+                    header("Location: ../index.php?signup=Pls_accept_the_therms");
                 } else {
-                    $sql = "SELECT * FROM users WHERE user_uid='$uid'";
-                    $result = mysqli_query($conn, $sql);
-                    $resultCheck = mysqli_num_rows($result);
-                    if ($resultCheck > 0) {
-                        header("Location: ../index.php?signup=usertaken");
+                    //Check if email is valid
+                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        header("Location: ../index.php?signup=email");
                         exit();
-                        }else {
+                    } else {
+                        $sql = "SELECT * FROM users WHERE user_uid='$uid'";
+                        $result = mysqli_query($conn, $sql);
+                        $resultCheck = mysqli_num_rows($result);
+                        if ($resultCheck > 0) {
+                            header("Location: ../index.php?signup=usertaken");
+                            exit();
+                        } else {
                             //Hashing the password
                             $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
                             // inser the user into the database
@@ -44,13 +49,13 @@ if (isset($_POST['submit'])){
                             mysqli_query($conn, $sql);
                             header("Location: ../index.php?signup=success");
                             exit();
+                        }
                     }
                 }
             }
         }
     }
-
 } else {
-    header("Location: ../index.html.php");
+    header("Location: ../index.php");
     exit();
 }

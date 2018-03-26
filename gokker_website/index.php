@@ -32,7 +32,7 @@ session_start();
             </div>
         </div>
         <nav>
-            <a class="current" href="index.html">Home</a>
+            <a class="current" href="index.php">Home</a>
             <a href="#">About</a>
             <a href="#">download</a>
             <a href="#">login</a>
@@ -70,9 +70,10 @@ session_start();
             <input type="text" name="last" placeholder="Lastname">
             <input type="email" name="email" placeholder="E-mail">
             <input type="text" name="uid" placeholder="Username">
-            <input type="password" name="pwd" placeholder="Password">
+            <input type="password" name="pwd" placeholder="Password" min>
             <button type="submit" name="submit">Signup</button>
             <input name="accept" type="checkbox" class="tickbox" value="1" />
+            <a href="#">ik ga akkoord met de voorwaarde </a>
         </form>';
     }
     ?>
